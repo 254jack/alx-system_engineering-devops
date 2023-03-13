@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "Best School" > '\*\\'"Best School"\'\\*\$\\?\*\*\*\*\*:\)\n' 2>/dev/null; if [ -e '*' ]; then ls -l *; cat -e *; fi
+echo "Best School" > '\'''"Best School"'''$?*****:)\n'
