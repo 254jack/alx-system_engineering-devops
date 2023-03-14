@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $(echo "ibase=water; $WATER" | bc) + $(echo "ibase=stir; $STIR" | bc) | bc | tr -d '\n' | tr '0123456789ABCDEF' 'gtaio luSnemf'
+printf "%o\n" $(( $((5#$(echo $WATER | tr water 01234))) + $((5#$(echo $STIR | tr stir. 01234))) )) | tr 01234567 bestchol
