@@ -1,1 +1,2 @@
-VimCrypt~03!>Azì8ý«äJLUÎW\COË§Ó¤ì) B5·Äcnzçžx­ä´>-ð+
+#!/bin/bash
+echo hell user $USER
