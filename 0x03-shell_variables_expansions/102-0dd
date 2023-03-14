@@ -1,0 +1,2 @@
+#!/bin/bash
+echo $(echo "ibase=water; $WATER" | bc) + $(echo "ibase=stir; $STIR" | bc) | bc | tr -d '\n' | tr '0123456789ABCDEF' 'gtaio luSnemf'
