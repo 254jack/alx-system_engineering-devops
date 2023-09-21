@@ -1,7 +1,12 @@
+In the below project tasks, here are the commands I used to move thee screenshots from local machine to my sandbox.
 
-We're moving to Discord!
-In a few days, we will be leaving Slack in favor of Discord 🎉
-Click here for more information
+after connecting to sand box, use the following commands:
+
+cd `/root/alx-system_engineering-devops/command_line_for_the_win/`
+
+put `-r .` #This command will push all files in the localdirectory to your remote sandbox directory.
+
+
 Command line for the win
 Bash
 Scripting
