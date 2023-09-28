@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This script displays hour and minute updates from 00:00 to 12:59
+count=0
+while ((count < 13)); do
+	echo 'Hour:' $count
+	i=1
+	while ((i < 60)); do
+		echo $i
+		((i++))
+	done
+	((count++))
+done
+unset count
+unset i
