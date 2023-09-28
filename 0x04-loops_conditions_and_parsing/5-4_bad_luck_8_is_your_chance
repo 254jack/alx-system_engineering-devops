@@ -2,7 +2,7 @@
 # This script is displaying "Best School" 10 times
 count=10
 while ((count > 0)); do
-    if [ $count -eq 8 ]; then
+    if [ $count -eq 7 ]; then
         echo 'bad luck'
     elif [ $count -eq 3 ]; then
         echo 'good luck'
