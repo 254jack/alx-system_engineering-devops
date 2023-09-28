@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# This script is displaying integers from 1-20, adding messages at 4,5,17
+count=1
+while (( count < 21 )); do
+echo $count
+case $count in
+    4 )
+	echo 'bad luck from China';;
+    9 )
+	echo 'bad luck from Japan';;
+    17 )
+	echo 'bad luck from Italy';;
+    esac
+((count++)); done
+unset count
