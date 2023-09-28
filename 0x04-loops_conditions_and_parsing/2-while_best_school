@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-#!/This script is displaying "Best Scool" 10 times using while loop
+#!/This script is displaying "Best Scool" 10
+#!/times using while loop
 #Initializing count
 count=0
-
+#using a while loop condition
 while [ $count -lt 10 ]; do
     echo "Best School"
     ((count++))
