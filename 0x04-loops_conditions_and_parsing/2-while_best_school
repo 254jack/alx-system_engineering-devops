@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 #This script is displaying "Best School" 10 times
 count=10
-while (( count > 0 )); do echo 'Holberton School'; ((count--)); done
+while (( count > 0 )); do echo 'Best School'; ((count--)); done
 unset count
