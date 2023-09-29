@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# using custom output from task 1, filter for mentions of bash
+# shellcheck disable=SC2009
+ps aux --forest | grep bash | tail -n +2
