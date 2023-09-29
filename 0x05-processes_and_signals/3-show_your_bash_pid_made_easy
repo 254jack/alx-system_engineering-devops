@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Consicse method of showing bash PIDs
+pgrep -l bash
