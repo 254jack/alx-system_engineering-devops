@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# displays custom output of process tree information
+ps aux --forest
