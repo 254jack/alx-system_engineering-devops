@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# kills task 7 script running in an infinite loop on another tty
+pkill --signal SIGKILL -f ./7-highlander
