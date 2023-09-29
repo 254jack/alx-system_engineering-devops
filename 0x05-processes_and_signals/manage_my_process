@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# in infinity, adds 'I am alive!' every two seconds to /tmp/my_process
+while ((1)); do
+	echo 'I am alive!' >>/tmp/my_process
+	sleep 2
+done
