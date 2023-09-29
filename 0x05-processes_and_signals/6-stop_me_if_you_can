@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# terminates by command name script from task 4 running in an infinite loop on another tty
+pkill -f ./4-to_infinity_and_beyond
