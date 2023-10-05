@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# listens and waits for incoming commands
+nc -kl 98
