@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
-# listens and waits for incoming commands
-sudo nc -kl 98
+# -l listens and waits for incoming comms, -k continues to wait afterward
+nc -kl 98
+
+
