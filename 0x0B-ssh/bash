@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Ensure correct permissions for the private key
+chmod 600 /home/jack/Documents/alx-system_engineering-devops/0x0B-ssh/school
+
+# Copy the public key to the server
+ssh-copy-id -i /home/jack/Documents/alx-system_engineering-devops/0x0B-ssh/school.pub ubuntu@18.204.6.214
