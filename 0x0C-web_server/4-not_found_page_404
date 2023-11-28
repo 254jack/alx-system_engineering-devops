@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+#page not found
 if ! command -v nginx &> /dev/null
 then
    sudo apt-get -y update
