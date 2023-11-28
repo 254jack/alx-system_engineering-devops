@@ -1,15 +1,7 @@
 #!/usr/bin/env bash
-# Install Nginx on web_01
-apt-get update -y
-apt-get install nginx -y
-
+# Install nginx server
+apt-get update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
 echo "Hello World!" > /var/www/html/index.html
-
-sed -i 's/80 default_server/80/' /etc/nginx/sites-available/default
-
-service nginx restart
-
-rm -f /etc/nginx/sites-enabled/default
-ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
-
-cat /var/www/html/index.html
+service nginx start
