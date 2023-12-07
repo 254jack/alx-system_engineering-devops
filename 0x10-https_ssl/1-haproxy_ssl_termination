@@ -8,15 +8,11 @@ global
         group haproxy
         daemon
 
-        # Default SSL material locations
+        # SSL material locations
         ca-base /etc/ssl/certs
         crt-base /etc/ssl/private
 
-        # Default ciphers to use on SSL-enabled listening sockets.
-        # For more information, see ciphers(1SSL). This list is from:
-        #  https://hynek.me/articles/hardening-your-web-servers-ssl-ciphers/
-        # An alternative list with additional directives can be obtained from
-        #  https://mozilla.github.io/server-side-tls/ssl-config-generator/?server=haproxy
+        # ciphers to use on SSL-enabled listening sockets.
         ssl-default-bind-ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:RSA+AESGCM:RSA+AES:!aNULL:!MD5:!DSS
         ssl-default-bind-options no-sslv3
 
@@ -41,8 +37,8 @@ listen thelaura
         bind :80
         mode http
         balance roundrobin
-        server 652-web-01 35.190.176.186:80 check
-        server 652-web-02 35.196.156.157:80 check
+        server 652-web-01 18.204.6.30:80 check
+        server 652-web-02 54.158.79.188:80 check
 
 frontend www-http
         bind :80
@@ -56,5 +52,5 @@ frontend www-https
 
 backend web-backend
         redirect scheme https if !{ ssl_fc }
-        server 652-web-01 35.190.176.186:80 check
-        server 652-web-02 35.196.156.157:80 check
+        server 652-web-01 18.204.6.30:80 check
+        server 652-web-02 54.158.79.188:80 check
