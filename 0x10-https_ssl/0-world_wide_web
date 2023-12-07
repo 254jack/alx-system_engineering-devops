@@ -1,16 +1,21 @@
-#!/usr/bin/env bash
-# world wide web
-sub_info () {
-    
-    if [ "$#" -eq 2 ]; then
-        dig $2.$1 | grep -A1 'ANSWER SECTION:' | tr '\n' ' ' | awk '{split($0,a," "); split(a[4],b,"."); printf "The subdomain %s is a %s record and points to %s\n",b[1], a[7], a[8]}'
-    elif [ "$#" -eq 1 ]; then
-        dig www.$1 | grep -A1 'ANSWER SECTION:' | tr '\n' ' ' | awk '{split($0,a," "); printf "The subdomain www is a %s record and points to %s\n", a[7], a[8]}'
-        dig lb-01.$1 | grep -A1 'ANSWER SECTION:' | tr '\n' ' ' | awk '{split($0,a," "); printf "The subdomain lb-01 is a %s record and points to %s\n", a[7], a[8]}'
-        dig web-01.$1 | grep -A1 'ANSWER SECTION:' | tr '\n' ' ' | awk '{split($0,a," "); printf "The subdomain web-01 is a %s record and points to %s\n", a[7], a[8]}'
-        dig web-02.$1 | grep -A1 'ANSWER SECTION:' | tr '\n' ' ' | awk '{split($0,a," "); printf "The subdomain web-02 is a %s record and points to %s\n", a[7], a[8]}'
-    fi
-
+#!/bin/bash
+# display information about a subdomain
+get_subdomain_info() {
+    domain="$1"
+    subdomain="$2"
+    record_type=$(dig "$subdomain.$domain" | awk '/ANSWER SECTION:/{getline; print $4, $5}')
+    destination=$(dig "$subdomain.$domain" | awk '/ANSWER SECTION:/{getline; print $5}')
+    echo "The subdomain $subdomain is a $record_type record and points to $destination"
 }
 
-sub_info $1 $2
+domain="$1"
+subdomain="$2"
+
+if [ -z "$subdomain" ]; then
+    get_subdomain_info "$domain" "www"
+    get_subdomain_info "$domain" "lb-01"
+    get_subdomain_info "$domain" "web-01"
+    get_subdomain_info "$domain" "web-02"
+else
+    get_subdomain_info "$domain" "$subdomain"
+fi
