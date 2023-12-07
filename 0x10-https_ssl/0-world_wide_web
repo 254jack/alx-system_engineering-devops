@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # display information about a subdomain
 get_subdomain_info() {
     domain="$1"
