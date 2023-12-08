@@ -3,8 +3,17 @@
 get_subdomain_info() {
     domain="$1"
     subdomain="$2"
+
+    result=$(dig +short "$subdomain.$domain")
+
+    if [ -z "$result" ]; then
+        echo "Error: Subdomain $subdomain not found."
+        return
+    fi
+
     record_type=$(dig "$subdomain.$domain" | awk '/ANSWER SECTION:/{getline; print $4}')
-    destination=$(dig "$subdomain.$domain" | awk '/ANSWER SECTION:/{getline; print $5}')
+    destination=$(dig +short "$subdomain.$domain")
+
     echo "The subdomain $subdomain is a $record_type record and points to $destination"
 }
 
