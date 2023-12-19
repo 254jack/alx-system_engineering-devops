@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-# a python script to run whoami as another user
+# a bash script to run whoami as another user
 sudo -u "$1" whoami
