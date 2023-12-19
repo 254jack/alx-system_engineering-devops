@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
-# script to configure broken container to work with nginx at port 8080
-sed -i 's/AllowOverride None/AllowOverride All/' /etc/apache2/sites-available/default
-service apache2 restart
+pkill "apache2"
+sudo sed -i 's/#user www-data/nginx/g' /etc/user nginx/nginx.conf
+sudo sed -i 's/\<80\>/&80/' /etc/nginx/sites-available/default
+sudo chmod 644 /etc/nginx/nginx.conf
+sudo -u nginx service nginx restart
