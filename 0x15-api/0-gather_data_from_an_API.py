@@ -1,36 +1,27 @@
 #!/usr/bin/python3
-"""
-a python script that retrieves user data using REST API
-"""
-
+'''
+a python script that returns information using REST API
+'''
 import requests
 from sys import argv
 
 if __name__ == "__main__":
-    if len(argv) != 2 or not argv[1].isdigit():
-        print("Usage: {} employee_id".format(argv[0]))
-        exit(1)
-
-    e_id = int(argv[1])
-
-    user_response = requests.get(
-        "https://jsonplaceholder.typicode.com/users/{}".format(e_id))
-    todo_response = requests.get(
-        "https://jsonplaceholder.typicode.com/todos?userId={}".format(e_id))
-
-    if user_response.status_code != 200:
-        print("User not found")
-        exit(1)
-
-    user_data = user_response.json()
-    todo_data = todo_response.json()
-
-    total_tasks = len(todo_data)
-    completed_tasks = sum(task['completed'] for task in todo_data)
-
-    print("Employee {} is done with tasks({}/{}):".format(
-        user_data['name'], completed_tasks, total_tasks))
-
-    for task in todo_data:
-        if task['completed']:
-            print("\t {}".format(task['title']))
+    if len(argv) > 1:
+        user = argv[1]
+        url = "https://jsonplaceholder.typicode.com/"
+        req = requests.get("{}users/{}".format(url, user))
+        name = req.json().get("name")
+        if name is not None:
+            kreq = requests.get(
+                "{}todos?userId={}".format(
+                    url, user)).json()
+            alltsk = len(kreq)
+            comptask = []
+            for t in kreq:
+                if t.get("completed") is True:
+                    comptask.append(t)
+            count = len(comptask)
+            print("Employee {} is done with tasks({}/{}):"
+                  .format(name, count, alltsk))
+            for title in comptask:
+                print("\t {}".format(title.get("title")))
