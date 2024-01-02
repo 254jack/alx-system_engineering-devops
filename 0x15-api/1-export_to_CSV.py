@@ -10,9 +10,10 @@ from sys import argv
 if __name__ == "__main__":
     usid = argv[1]
     url = "https://jsonplaceholder.typicode.com/users/{}".format(usid)
-    user = requests.get(url, verify=False).json()
     url = "https://jsonplaceholder.typicode.com/todos?userId={}".format(
         usid)
+    user = requests.get(url, verify=False).json()
+
     todo = requests.get(url, verify=False).json()
     with open("{}.csv".format(usid), 'w', newline='') as csvfile:
         taskwriter = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
