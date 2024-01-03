@@ -17,8 +17,7 @@ if __name__ == '__main__':
     url = "https://jsonplaceholder.typicode.com/todos"
     todo = requests.get(url, verify=False).json()
     [udoc.get(tsk.get("userId")).append({"task": tsk.get("title"),
-                                       "completed": tsk.get("completed"),
-                                       "username": undoc.get(
+     "completed": tsk.get("completed"), "username": undoc.get(
         tsk.get("userId"))})
      for tsk in todo]
     with open("todo_all_employees.json", 'w') as jsf:
